@@ -35,7 +35,7 @@ namespace PSD_Lab_5.Services
                 description = payment.Description,
                 order_id = order.OrderId,
 
-                server_url = "https://109.86.228.248:5001/payment/post-callback",
+                server_url = "{IP}/payment/post-callback",
                 result_url = "http://localhost:8080/about",
             };
 
