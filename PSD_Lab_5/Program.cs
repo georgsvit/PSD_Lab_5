@@ -20,6 +20,7 @@ namespace PSD_Lab_5
             Host.CreateDefaultBuilder(args)
                 .ConfigureWebHostDefaults(webBuilder =>
                 {
+                    webBuilder.UseUrls("http://localhost:5000", "https://192.168.178.21:5001");
                     webBuilder.UseStartup<Startup>();
                 });
     }

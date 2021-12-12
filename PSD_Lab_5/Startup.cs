@@ -4,6 +4,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.OpenApi.Models;
+using PSD_Lab_5.Models;
+using PSD_Lab_5.Services;
 
 namespace PSD_Lab_5
 {
@@ -25,6 +27,11 @@ namespace PSD_Lab_5
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "PSD_Lab_5", Version = "v1" });
             });
+
+            //services.AddSingleton<IConfiguration>(Configuration);
+            services.Configure<LiqpayOptions>(Configuration.GetSection("LiqpayOptions"));
+            services.AddTransient<PaymentService>();
+            services.AddSingleton<SessionStorage>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
